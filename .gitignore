@@ -36,6 +36,8 @@
 /libpeerconnection.log
 testem.log
 /typings
+bin
+obj
 
 # System files
 .DS_Store
