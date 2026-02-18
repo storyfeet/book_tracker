@@ -10,4 +10,6 @@ app.MapGet("/hello", (HttpRequest request)=>{
     return $"Hello to {name}";
 } );
 
+
+
 app.Run();

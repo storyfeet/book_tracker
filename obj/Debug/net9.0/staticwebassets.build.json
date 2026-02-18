@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "quWXrKjrfq+ySLoVDvDufHFjJfz4yBnNp+oLebPflxY=",
+  "Source": "book_tracker",
+  "BasePath": "_content/book_tracker",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
