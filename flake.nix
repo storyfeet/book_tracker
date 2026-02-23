@@ -28,7 +28,7 @@
 	devShells.x86_64-linux = {
 		default = legacy.mkShell {
 			buildInputs = [
-				legacy.dotnetCorePackages.sdk_9_0_1xx-bin
+				legacy.dotnetCorePackages.sdk_10_0-bin
 				legacy.sqlite
 				legacy.sqlite-interactive
 				legacy.ghostscript
