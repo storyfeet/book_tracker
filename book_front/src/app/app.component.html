@@ -232,13 +232,10 @@
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
-          { title: 'Moby Dick', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
+          { title: 'Moby Dick', link: 'https://angular.dev' ,isbn: 'fiddy' },
+          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' ,isbn: 'tweny'},
         ]; track item.title) {
-          <app-book [title]="item.title" [link]="item.link" />
+          <app-book [book]="item" />
         }
       </div>
       <div class="social-links">
