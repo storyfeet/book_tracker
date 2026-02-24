@@ -1,11 +1,18 @@
 using  Microsoft.AspNetCore.Http;
 using Microsoft.Data.Sqlite;
 using static Book;
+using static SubDbContext;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<SubDbContext>(options=>{
+    options.UseSqlite("Data Source=database/books.db");
+});
 
 var allowedOrigins = builder.Configuration.GetValue<string>("allowedOrigins")!.Split(",");
  
