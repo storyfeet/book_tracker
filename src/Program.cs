@@ -17,7 +17,7 @@ builder.Services.AddDbContext<SubDbContext>(options=>{
 
 var allowedOrigins = builder.Configuration.GetValue<string>("allowedOrigins")!.Split(",");
  
-// B
+
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
@@ -64,7 +64,7 @@ app.MapGet("/books", async(SubDbContext context,HttpRequest request)=>{
  
 app.UseHttpsRedirection();
  
-// C
+
 app.UseCors();
  
 app.UseAuthorization();
