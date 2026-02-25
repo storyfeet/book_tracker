@@ -4,6 +4,7 @@ using Models;
 using static SubDbContext;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,13 +38,18 @@ app.MapGet("/hello", (HttpRequest request)=>{
 } );
 
 //Get for now for easy browser work,
-app.MapGet("/books/add",async(SubDbContext context)=>{
-    var book = new Book(Id:1,Title:"fish",Link:"none");
-    context.Books.Add(book);
-    await context.SaveChangesAsync();
-    return """{"success":"true"}""";
-
-});
+app.MapGet("/books/add",async(
+        SubDbContext context,
+        [FromQuery] string Id,
+        [FromQuery] string Title,
+        [FromQuery] string Link
+    )=>{
+        var book = new Book(Id:long.Parse(Id),Title:Title,Link:Link);
+        context.Books.Add(book);
+        await context.SaveChangesAsync();
+        return """{"success":"true"}""";
+    }
+);
 
 app.MapGet("/books", async(HttpRequest request)=>{
     var connection = new SqliteConnection("Data Source=database/demo1.sqlite");
