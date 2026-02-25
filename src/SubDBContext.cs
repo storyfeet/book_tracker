@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Models;
 
 public class SubDbContext : DbContext
 {
@@ -6,6 +7,7 @@ public class SubDbContext : DbContext
     {
     }
 
+    public DbSet<Book> Books {get;set;}
     //public DbSet<Product> Products { get; set; }
 }
 
