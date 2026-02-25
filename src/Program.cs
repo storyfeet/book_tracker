@@ -36,6 +36,15 @@ app.MapGet("/hello", (HttpRequest request)=>{
     return $"Hello to {name}";
 } );
 
+//Get for now for easy browser work,
+app.MapGet("/books/add",async(SubDbContext context)=>{
+    var book = new Book(Id:1,Title:"fish",Link:"none");
+    context.Books.Add(book);
+    await context.SaveChangesAsync();
+    return """{"success":"true"}""";
+
+});
+
 app.MapGet("/books", async(HttpRequest request)=>{
     var connection = new SqliteConnection("Data Source=database/demo1.sqlite");
     connection.Open();
