@@ -51,22 +51,9 @@ app.MapGet("/books/add",async(
     }
 );
 
-app.MapGet("/books", async(HttpRequest request)=>{
-    var connection = new SqliteConnection("Data Source=database/demo1.sqlite");
-    connection.Open();
-    var cmd = connection.CreateCommand();
-    cmd.CommandText = """
-    SELECT * FROM books;
-    """;
-    SqliteDataReader reader = cmd.ExecuteReader();
+app.MapGet("/books", async(SubDbContext context,HttpRequest request)=>{
 
-    List<Book> books = new List<Book>();
-    
-    while (reader.Read()){
-        var book = new Book(reader);
-        books.Add(book);
-    }
-    connection.Close();
+    var books = context.Books.ToList();
 
     string jsonString = JsonSerializer.Serialize(books);
 
