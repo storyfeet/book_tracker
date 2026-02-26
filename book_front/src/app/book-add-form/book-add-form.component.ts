@@ -10,7 +10,7 @@ import { BookListerService } from '../services/book-lister.service';
   styleUrl: './book-add-form.component.scss'
 })
 export class BookAddFormComponent {
-  book: NewBook = {Title:'',Link:''};
+  book: NewBook = {Title:'',ISBN:'',Notes:''};
   private bookService:BookListerService;
 
   constructor(){

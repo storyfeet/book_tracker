@@ -1,10 +1,12 @@
 export interface Book{
     Title: string;
     Id: number;
-    Link: string;
+    Notes: string;
+    ISBN: string;
 }
 
 export interface NewBook{
     Title: string;
-    Link: string;
+    Notes: string;
+    ISBN: string;
 }
