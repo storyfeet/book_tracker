@@ -1,0 +1,5 @@
+<form (submit)="onSubmit()">
+    <span>Title: </span><input name="Title" type="text" [(ngModel)]="book.Title" /><br>
+    <span>Link: </span><input name="Link" type="text" [(ngModel)]="book.Link" />
+    <input type="submit" value="Add Book">
+</form>
