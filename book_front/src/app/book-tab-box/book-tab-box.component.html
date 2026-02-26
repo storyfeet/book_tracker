@@ -1,0 +1,16 @@
+  <div class="tab-box">
+    <button (click)="select('VIEW_BOOKS')">Books</button>
+    <button (click)="select('ADD_BOOK')">Add Book</button>
+    <button (click)="select('ADD_AUTHOR')">Add Author</button>
+  </div>
+  @switch (mode) {
+    @case ('VIEW_BOOKS'){
+        <span>BOOK LIST</span>
+    }
+    @case ('ADD_BOOK'){
+        <app-book-add-form/>
+    }
+    @default(){
+        <span>TODO</span>
+    }
+  }
