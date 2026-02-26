@@ -1,24 +1,16 @@
 namespace Models;
 
 using Microsoft.Data.Sqlite;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Book {
-    public long Id {get;set;}
-    public string Title {get; set;}
-    public string Link {get;set;}
-
-    public Book(long Id, string Title , string Link ){
-        this.Id = Id;
-        this.Title = Title;
-        this.Link = Link;
-    }
-
-    // If select *
-    public Book(SqliteDataReader reader ){
-        this.Id = int.Parse(reader.GetString(0));
-        this.Title = reader.GetString(1);
-        this.Link = reader.GetString(2);
-    }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public long? Id {get;set;}
+    public string Title {get; set;} = string.Empty;
+    public string Link {get;set;} = string.Empty;
 
 }
+
 

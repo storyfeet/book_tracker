@@ -38,13 +38,10 @@ app.MapGet("/hello", (HttpRequest request)=>{
 } );
 
 //Get for now for easy browser work,
-app.MapGet("/books/add",async(
+app.MapPost("/books/add",async(
         SubDbContext context,
-        [FromQuery] string Id,
-        [FromQuery] string Title,
-        [FromQuery] string Link
+        [FromBody] Book book
     )=>{
-        var book = new Book(Id:long.Parse(Id),Title:Title,Link:Link);
         context.Books.Add(book);
         await context.SaveChangesAsync();
         return """{"success":"true"}""";
