@@ -4,15 +4,15 @@ using Microsoft.Data.Sqlite;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Book {
+public class BookAuthor{
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long? Id {get;set;}
-    public string? ISBN {get; set;} 
-    public string Title {get; set;} = string.Empty;
-    public string Notes {get; set;} = string.Empty;
+    [ForeignKey("Book")]
+    public required long BookId {get;set;}
+    public Book? Book{get;set;}
+
+    [ForeignKey("Author")]
+    public required long AuthorId{get;set;}
+    public Author? Author{get;set;}
 }
-
-
-
-
