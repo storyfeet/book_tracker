@@ -1,0 +1,23 @@
+:host{
+    position:fixed;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color:white;
+    max-width:90%;
+
+    border-left:1px solid black;
+    padding: 20px;
+}  
+
+.right-align{
+    text-align: right;
+    margin:auto;
+}
+
+.divider {
+    width: 1px;
+    background: var(--red-to-pink-to-purple-vertical-gradient);
+    margin-inline: 0.5rem;
+}
+
