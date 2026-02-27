@@ -10,7 +10,10 @@
     @case ('ADD_BOOK'){
         <app-book-add-form/>
     }
+    @case ('ADD_AUTHOR'){
+      <app-author-add-form/>
+    }
     @default(){
-        <span>TODO</span>
+        <span>TODO: {{mode}}</span>
     }
   }

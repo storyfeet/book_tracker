@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { BookAddFormComponent } from '../book-add-form/book-add-form.component';
 import { BookListComponent } from "../book-list/book-list.component"; 
+import { AuthorAddFormComponent } from '../author-add-form/author-add-form.component';
 
 @Component({
   selector: 'app-book-tab-box',
-  imports: [BookAddFormComponent, BookListComponent],
+  imports: [BookAddFormComponent, BookListComponent, AuthorAddFormComponent],
   templateUrl:'./book-tab-box.component.html',
   styleUrl: './book-tab-box.component.scss'
 })

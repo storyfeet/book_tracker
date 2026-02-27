@@ -6,6 +6,7 @@ using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
+const string SUCCESS = """{"success":"true"}""";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,7 +45,17 @@ app.MapPost("/books/add",async(
     )=>{
         context.Books.Add(book);
         await context.SaveChangesAsync();
-        return """{"success":"true"}""";
+        return SUCCESS;
+    }
+);
+
+app.MapPost("/authors/add",async(
+    SubDbContext context, 
+    [FromBody] Author author
+    ) =>{
+        context.Authors.Add(author);
+        await context.SaveChangesAsync();
+        return SUCCESS;
     }
 );
 
