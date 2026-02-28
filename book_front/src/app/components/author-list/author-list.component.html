@@ -1,7 +1,7 @@
-<h2>View Books</h2>
+<h2>View Authors</h2>
 <form (submit)="loadBooks()">
     <input name="Filter" type="text" [(ngModel)]="filter"/>
-    <input type="submit" value="Find Books"/>
+    <input type="submit" value="Find Authors"/>
 </form>
 @for (author of authors; track $index){
     <app-author-view [author]="author" />
