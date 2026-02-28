@@ -1,0 +1,16 @@
+<h2>Edit Book</h2>
+
+<form (submit)="selectBook()">
+    <span>Book ID:</span><input name="bookId" type="number" [(ngModel)]="bookId"/>
+    <input type="submit" value="selectBook"/>
+</form>
+
+@if (book){
+<h3>{{book.Title}}</h3>
+}
+@for(author of authors; track $index){
+    <app-author-view [author]="author"/>
+}
+
+
+<app-author-list [selectText]="'Assign Author'" (selectAuthor)="addAuthor($event)"/>
