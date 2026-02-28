@@ -5,6 +5,7 @@ using static SubDbContext;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using LinqKit;
 
 const string SUCCESS = """{"success":"true"}""";
 
@@ -59,9 +60,16 @@ app.MapPost("/authors/add",async(
     }
 );
 
-app.MapGet("/books", async(SubDbContext context,HttpRequest request)=>{
+app.MapGet("/books", async(SubDbContext context,[FromQuery] string filter)=>{
 
-    var books = context.Books.ToList();
+    var predicate = PredicateBuilder.New<Book>()
+        .Or((p)=>p.Title.Contains(filter))
+        .Or((p)=>p.Notes.Contains(filter));
+    
+
+    var books = context.Books
+        .Where(predicate)
+        .ToList();
 
     string jsonString = JsonSerializer.Serialize(books);
 
