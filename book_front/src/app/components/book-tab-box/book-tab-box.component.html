@@ -1,7 +1,9 @@
   <div class="tab-box">
     <button (click)="select('VIEW_BOOKS')">Books</button>
     <button (click)="select('ADD_BOOK')">Add Book</button>
+    <button (click)="select('VIEW_AUTHORS')">View Authors</button>
     <button (click)="select('ADD_AUTHOR')">Add Author</button>
+
   </div>
   @switch (mode) {
     @case ('VIEW_BOOKS'){
@@ -10,9 +12,13 @@
     @case ('ADD_BOOK'){
         <app-book-add-form/>
     }
+    @case('VIEW_AUTHORS'){
+      <app-author-list/>
+    }
     @case ('ADD_AUTHOR'){
       <app-author-add-form/>
     }
+
     @default(){
         <span>TODO: {{mode}}</span>
     }

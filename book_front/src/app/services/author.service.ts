@@ -17,8 +17,11 @@ export class AuthorService{
    * @param callback function(Book[]):null
    * @returns 
    */
-  getAuthors(callback: (authors:Author[])=>void){
-    this.http.get<Author[]>(`${BASE_URL}/authors`).subscribe(callback);
+  getAuthors(filter:string,callback: (authors:Author[])=>void){
+    this.http.get<Author[]>(
+      `${BASE_URL}/authors`,
+      {params: {filter:filter }}
+    ).subscribe(callback);
   }
 
   addAuthor(author: NewAuthor,callback: ()=>void){
