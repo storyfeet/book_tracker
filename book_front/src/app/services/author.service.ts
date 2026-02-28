@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Author , NewAuthor } from '../../data/author_data'; 
+import { Author , NewAuthor } from '../data/author_data'; 
 
 const BASE_URL="http://localhost:5229";
 

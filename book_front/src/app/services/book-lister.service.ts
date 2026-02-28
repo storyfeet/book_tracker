@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Book } from '../../data/book_data';
-import { NewBook } from '../../data/book_data';
+import { Book } from '../data/book_data';
+import { NewBook } from '../data/book_data';
 
 const BASE_URL="http://localhost:5229";
 
