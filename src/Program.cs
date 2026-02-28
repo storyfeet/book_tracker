@@ -82,6 +82,7 @@ app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>
 
     var authors = await context.BookAuthors
         .Where((pivot)=>pivot.BookId == BookId )
+        .Join(context.Authors,bookAuthor=>bookAuthor.AuthorId,author=>author.Id,(_,author)=>author)
         .ToListAsync();
 
     var result = new {
@@ -91,6 +92,12 @@ app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>
 
     return JsonSerializer.Serialize(result);
 
+});
+
+app.MapPost("/books/assign_author", async(SubDbContext context, [FromBody] BookAuthor bookAuthor)=>{
+    context.BookAuthors.Add(bookAuthor);
+    await context.SaveChangesAsync();
+    return SUCCESS;
 });
 
 app.MapGet("/authors", async(SubDbContext context,[FromQuery] string filter)=>{
