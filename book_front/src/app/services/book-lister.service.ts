@@ -18,8 +18,10 @@ export class BookListerService {
    * @param callback function(Book[]):null
    * @returns 
    */
-  getBooks(callback: (books:Book[])=>void){
-    this.http.get<Book[]>(`${BASE_URL}/books`).subscribe(callback);
+  getBooks(filter:string,callback: (books:Book[])=>void){
+    this.http.get<Book[]>(`${BASE_URL}/books`,{
+      params: {filter:filter},
+    }).subscribe(callback);
   }
 
   addBook(book: NewBook,callback: ()=>void){

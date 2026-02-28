@@ -11,17 +11,4 @@ import { SideBarComponent } from "./side-bar/side-bar.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'book_front';
-  books:Book[] = [];
-
-  constructor(){ 
-    this.loadBooks();
-  }
-
-  async loadBooks(){
-
-    new BookListerService().getBooks((books)=>this.books = books);
-
-  }
-}
+export class AppComponent {}
