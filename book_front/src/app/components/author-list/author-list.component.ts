@@ -19,7 +19,6 @@ export class AuthorListComponent {
   constructor(){
     this.filter = '';
     this.authorService = new AuthorService();
-    this.loadBooks();
   }
 
   async loadBooks(){
