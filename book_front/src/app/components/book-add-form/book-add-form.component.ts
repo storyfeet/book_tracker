@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewBook } from '../../data/book_data';
-import { BookListerService } from '../services/book-lister.service';
+import { BookListerService } from '../../services/book-lister.service';
 
 @Component({
   selector: 'app-book-add-form',

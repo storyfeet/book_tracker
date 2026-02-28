@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewAuthor } from '../../data/author_data';
-import { AuthorService } from '../services/author.service';
+import { AuthorService } from '../../services/author.service';
 
 @Component({
   selector: 'app-author-add-form',
