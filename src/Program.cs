@@ -76,6 +76,23 @@ app.MapGet("/books", async(SubDbContext context,[FromQuery] string filter)=>{
     return jsonString;
 });
 
+app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>{
+
+    var book = await context.Books.FindAsync(BookId);
+
+    var authors = await context.BookAuthors
+        .Where((pivot)=>pivot.BookId == BookId )
+        .ToListAsync();
+
+    var result = new {
+        book = book,
+        authors = authors,
+    };
+
+    return JsonSerializer.Serialize(result);
+
+});
+
 app.MapGet("/authors", async(SubDbContext context,[FromQuery] string filter)=>{
 
     var predicate = PredicateBuilder.New<Author>()
