@@ -67,15 +67,31 @@ app.MapGet("/books", async(SubDbContext context,[FromQuery] string filter)=>{
         .Or((p)=>p.Notes.Contains(filter));
     
 
-    var books = context.Books
+    var books = await context.Books
         .Where(predicate)
-        .ToList();
+        .ToListAsync();
 
     string jsonString = JsonSerializer.Serialize(books);
 
     return jsonString;
 });
 
+app.MapGet("/authors", async(SubDbContext context,[FromQuery] string filter)=>{
+
+    var predicate = PredicateBuilder.New<Author>()
+        .Or((p)=>p.FullName.Contains(filter))
+        .Or((p)=>p.Notes.Contains(filter))
+        .Or((p)=>p.Genres.Contains(filter));
+    
+
+    var authors = await context.Authors
+        .Where(predicate)
+        .ToListAsync();
+
+    string jsonString = JsonSerializer.Serialize(authors);
+
+    return jsonString;
+});
 
  
 app.UseHttpsRedirection();
