@@ -9,6 +9,10 @@ export const routes: Routes = [
     {
         path:'local/books/edit',
         component:HomePageComponent,
+    },
+    {
+        path:'local/authors/view',
+        component:HomePageComponent,
     }
 
 ];

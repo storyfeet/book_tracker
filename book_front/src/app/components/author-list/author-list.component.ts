@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Author } from '../../data/author_data';
 import { AuthorViewComponent } from '../author-view/author-view.component';
 import { AuthorService } from '../../services/author.service';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-author-list',
@@ -16,9 +17,13 @@ export class AuthorListComponent {
   @Input() selectText:string|null = null;
   @Output() selectAuthor = new EventEmitter<Author>(); 
   private authorService:AuthorService;
+  private activatedRoute = inject(ActivatedRoute);
   constructor(){
-    this.filter = '';
+    this.filter = this.activatedRoute.snapshot.queryParams['author_name'] ?? '';
     this.authorService = new AuthorService();
+    if (this.filter){
+      this.loadBooks();
+    }
   }
 
   async loadBooks(){

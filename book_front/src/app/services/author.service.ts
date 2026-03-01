@@ -24,7 +24,7 @@ export class AuthorService{
     ).subscribe(callback);
   }
 
-  addAuthor(author: NewAuthor,callback: ()=>void){
-    this.http.post<NewAuthor>(`${BASE_URL}/authors/add`,author,{}).subscribe(callback);
+  addAuthor(author: NewAuthor,callback: (author:Author)=>void){
+    this.http.post<Author>(`${BASE_URL}/authors/add`,author,{}).subscribe(callback);
   }
 }

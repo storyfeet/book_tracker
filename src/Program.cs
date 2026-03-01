@@ -57,7 +57,7 @@ app.MapPost("/authors/add",async(
     ) =>{
         context.Authors.Add(author);
         await context.SaveChangesAsync();
-        return SUCCESS;
+        return JsonSerializer.Serialize(author);
     }
 );
 

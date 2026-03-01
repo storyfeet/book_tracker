@@ -29,6 +29,9 @@ export class BookTabBoxComponent {
       case 'local/books/edit':
         this.mode = 'EDIT_BOOK';
         break;
+      case 'local/authors/view':
+        this.mode = 'VIEW_AUTHORS';
+        break;
       default: 
         this.mode = 'VIEW_BOOKS';
     }
