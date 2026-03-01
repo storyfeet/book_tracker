@@ -13,6 +13,10 @@ export const routes: Routes = [
     {
         path:'local/authors/view',
         component:HomePageComponent,
+    },
+    {
+        path: '**',
+        component: HomePageComponent,
     }
 
 ];

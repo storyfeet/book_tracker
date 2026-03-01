@@ -41,9 +41,8 @@ export class BookEditComponent {
     if (!this.bookId){
       return;
     }
-    this.bookService.assignAuthor(this.bookId,author.Id,()=>{
-      
-    });
+    this.bookService.assignAuthor(this.bookId,author.Id,()=>{   });
+    this.selectBook();
   }
 
 

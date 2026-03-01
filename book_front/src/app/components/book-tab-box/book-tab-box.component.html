@@ -1,25 +1,25 @@
   <div class="tab-box">
-    <button (click)="select('VIEW_BOOKS')">Books</button>
-    <button (click)="select('ADD_BOOK')">Add Book</button>
-    <button (click)="select('EDIT_BOOK')">Edit Book</button>
-    <button (click)="select('VIEW_AUTHORS')">View Authors</button>
-    <button (click)="select('ADD_AUTHOR')">Add Author</button>
+    <button (click)="goto('/local/books/view')">Books</button>
+    <button (click)="goto('/local/books/add')">Add Book</button>
+    <button (click)="goto('/local/books/edit')">Edit Book</button>
+    <button (click)="goto('/local/authors/view')">View Authors</button>
+    <button (click)="goto('/local/authors/add')">Add Author</button>
 
   </div>
   @switch (mode) {
-    @case ('VIEW_BOOKS'){
+    @case ('local/books/view'){
         <app-book-list/>
     }
-    @case ('ADD_BOOK'){
+    @case ('local/books/add'){
         <app-book-add-form/>
     }
-    @case ('EDIT_BOOK'){
+    @case ('local/books/edit'){
       <app-book-edit/>
     }
-    @case('VIEW_AUTHORS'){
+    @case('local/authors/view'){
       <app-author-list/>
     }
-    @case ('ADD_AUTHOR'){
+    @case ('local/authors/add'){
       <app-author-add-form/>
     }
 

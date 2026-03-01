@@ -5,6 +5,7 @@ import { AuthorAddFormComponent } from '../author-add-form/author-add-form.compo
 import { AuthorListComponent } from '../author-list/author-list.component';
 import { BookEditComponent } from '../book-edit/book-edit.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-book-tab-box',
@@ -24,22 +25,12 @@ export class BookTabBoxComponent {
 
   setRoute(){
     let snapshot = this.activatedRoute.snapshot;
-
-    switch (snapshot.routeConfig?.path){
-      case 'local/books/edit':
-        this.mode = 'EDIT_BOOK';
-        break;
-      case 'local/authors/view':
-        this.mode = 'VIEW_AUTHORS';
-        break;
-      default: 
-        this.mode = 'VIEW_BOOKS';
-    }
+    this.mode = snapshot.url.join('/') ?? 'local/books/view';
   }
 
 
-  select(newMode:string){
-    this.mode = newMode
+  goto(newMode:string){
+    this.router.navigate([newMode]);
   }
 
 }
