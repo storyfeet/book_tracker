@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Book } from '../../data/book_data';
 import { Author, BookAuthor } from '../../data/author_data';
 import { FormsModule } from '@angular/forms';
 import { BookListerService } from '../../services/book-lister.service';
 import { AuthorViewComponent } from '../author-view/author-view.component';
 import { AuthorListComponent } from "../author-list/author-list.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-edit',
@@ -17,11 +18,13 @@ export class BookEditComponent {
   book: Book | null;
   authors: Author[] = [];
   bookService: BookListerService;
+  private activatedRoute = inject(ActivatedRoute);
 
   constructor(){
     this.book = null;
-    this.bookId = null;
+    this.bookId = this.activatedRoute.snapshot.queryParams['book_id'] ?? null;
     this.bookService = new BookListerService();
+    this.selectBook();
   }
 
   selectBook(){

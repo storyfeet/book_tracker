@@ -28,7 +28,7 @@ export class BookAddFormComponent {
       (bookRes:Book)=>{
         console.log('Book Created', bookRes);
         outer.router.navigate(['/local/books/edit'],{
-          queryParams:{bookId:bookRes.Id}
+          queryParams:{book_id:bookRes.Id}
         });
       }
     );
