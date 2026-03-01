@@ -8,8 +8,9 @@
 @if (book){
 <h3>{{book.Title}}</h3>
 }
+By: 
 @for(author of authors; track $index){
-    <app-author-view [author]="author"/>
+    <span>@if (!$first){ and } {{author.FullName}}</span>
 }
 
 <h2>Assign Authors</h2>
