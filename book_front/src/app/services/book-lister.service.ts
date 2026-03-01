@@ -31,8 +31,8 @@ export class BookListerService {
     }).subscribe(callback);
   }
 
-  addBook(book: NewBook,callback: ()=>void){
-    this.http.post<NewBook>(`${BASE_URL}/books/add`,book,{}).subscribe(callback);
+  addBook(book: NewBook,callback: (book:Book)=>void){
+    this.http.post<Book>(`${BASE_URL}/books/add`,book,{}).subscribe(callback);
   }
 
   assignAuthor(bookId:number, authorId: number,callback:()=>void){

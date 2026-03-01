@@ -46,7 +46,8 @@ app.MapPost("/books/add",async(
     )=>{
         context.Books.Add(book);
         await context.SaveChangesAsync();
-        return SUCCESS;
+
+        return JsonSerializer.Serialize(book);
     }
 );
 

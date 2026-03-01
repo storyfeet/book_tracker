@@ -20,6 +20,10 @@ export class AuthorAddFormComponent {
     onSubmit(){
       console.log('New Author: ', this.book);
   
-      this.authorService.addAuthor(this.book,()=>{console.log('Author Upload Attempted')});
+      this.authorService.addAuthor(this.book,
+        ()=>{
+          console.log('Author Upload Attempted');
+        }
+      );
     }
 }
