@@ -1,2 +1,3 @@
 <h3>{{ book.Title }}</h3>
-<span>({{book.Id}}: {{book.ISBN}}) {{book.Notes}}</span>
+<span>({{book.Id}}: {{book.ISBN}}) {{book.Notes}}</span>&nbsp;
+<a routerLink="/local/books/edit" [queryParams]="{book_id:book.Id}">Edit</a>
