@@ -7,8 +7,12 @@
 
 @if (book){
 <h3>{{book.Title}}</h3>
-}
+<p>({{book.Id}}:{{book.ISBN}}) {{book.Notes}}
+    
+</p>
+
 By: 
+}
 @for(author of authors; track $index){
     <span>@if (!$first){ and } {{author.FullName}}</span>
 }

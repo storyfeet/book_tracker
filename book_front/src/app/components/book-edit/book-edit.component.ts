@@ -3,13 +3,12 @@ import { Book } from '../../data/book_data';
 import { Author, BookAuthor } from '../../data/author_data';
 import { FormsModule } from '@angular/forms';
 import { BookListerService } from '../../services/book-lister.service';
-import { AuthorViewComponent } from '../author-view/author-view.component';
 import { AuthorListComponent } from "../author-list/author-list.component";
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-edit',
-  imports: [FormsModule, AuthorViewComponent, AuthorListComponent],
+  imports: [FormsModule, AuthorListComponent],
   templateUrl: './book-edit.component.html',
   styleUrl: './book-edit.component.scss'
 })
