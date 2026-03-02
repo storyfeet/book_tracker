@@ -9,6 +9,9 @@
   @switch (mode) {
     @case ('local/books/view'){
         <app-book-list/>
+    } 
+    @case(''){
+        <app-book-list/>
     }
     @case ('local/books/add'){
         <app-book-add-form/>
@@ -22,6 +25,7 @@
     @case ('local/authors/add'){
       <app-author-add-form/>
     }
+    
 
     @default(){
         <span>TODO: {{mode}}</span>
