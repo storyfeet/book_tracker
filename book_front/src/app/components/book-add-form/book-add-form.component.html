@@ -2,6 +2,7 @@
 <form (submit)="onSubmit()">
     <span>Title: </span><input name="Title" type="text" [(ngModel)]="book.Title" /><br>
     <span>Notes: </span><input name="Notes" type="text" [(ngModel)]="book.Notes"/><br>
-    <span>ISBN: </span><input name="ISBN" type="text" [(ngModel)]="book.ISBN" />
+    <span>Genres: </span><input name="Genres" type="text" [(ngModel)]="book.Genres" /><br>
+    <span>ISBN: </span><input name="ISBN" type="text" [(ngModel)]="book.ISBN" /><br>
     <input type="submit" value="Add Book">
 </form>

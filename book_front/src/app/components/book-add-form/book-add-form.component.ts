@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './book-add-form.component.scss'
 })
 export class BookAddFormComponent {
-  book: NewBook = {Title:'',ISBN:'',Notes:''};
+  book: NewBook = {Title:'',ISBN:'',Notes:'',Genres:''};
   private bookService:BookListerService;
   private router:Router = inject(Router);
 

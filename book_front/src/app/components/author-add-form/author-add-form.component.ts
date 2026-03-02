@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrl: './author-add-form.component.scss'
 })
 export class AuthorAddFormComponent {
-    author: NewAuthor = {FullName:'',Genres:'',Notes:''};
+    author: NewAuthor = {FullName:'',Notes:''};
     private authorService:AuthorService;
     private router = inject(Router);
   
