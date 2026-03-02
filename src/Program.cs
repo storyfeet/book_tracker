@@ -65,7 +65,8 @@ app.MapGet("/books", async(SubDbContext context,[FromQuery] string filter)=>{
 
     var predicate = PredicateBuilder.New<Book>()
         .Or((p)=>p.Title.Contains(filter))
-        .Or((p)=>p.Notes.Contains(filter));
+        .Or((p)=>p.Notes.Contains(filter))
+        .Or((p)=>p.Genres.Contains(filter));
     
 
     var books = await context.Books
@@ -105,8 +106,8 @@ app.MapGet("/authors", async(SubDbContext context,[FromQuery] string filter)=>{
 
     var predicate = PredicateBuilder.New<Author>()
         .Or((p)=>p.FullName.Contains(filter))
-        .Or((p)=>p.Notes.Contains(filter))
-        .Or((p)=>p.Genres.Contains(filter));
+        .Or((p)=>p.Notes.Contains(filter));
+
     
 
     var authors = await context.Authors

@@ -10,5 +10,5 @@ public class Author{
     public long? Id {get;set;}
     public string FullName {get;set;} = string.Empty;
     public string Notes {get;set;} = string.Empty;
-    public string Genres {get;set;} = string.Empty;
+
 }
