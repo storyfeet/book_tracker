@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthorAddFormComponent } from './author-add-form.component';
+import { ContributorAddFormComponent } from './contributor-add-form.component';
 
 describe('AuthorAddFormComponent', () => {
-  let component: AuthorAddFormComponent;
-  let fixture: ComponentFixture<AuthorAddFormComponent>;
+  let component: ContributorAddFormComponent;
+  let fixture: ComponentFixture<ContributorAddFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AuthorAddFormComponent]
+      imports: [ContributorAddFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AuthorAddFormComponent);
+    fixture = TestBed.createComponent(ContributorAddFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

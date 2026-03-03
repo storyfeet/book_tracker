@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Author } from '../../data/author_data';
+import { Contributor } from '../../data/author_data';
 import { AuthorViewComponent } from '../author-view/author-view.component';
 import { AuthorService } from '../../services/author.service';
 import { FormsModule } from '@angular/forms';
@@ -13,9 +13,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthorListComponent {
   filter: string;
-  authors: Author[] = [];
+  authors: Contributor[] = [];
   @Input() selectText:string|null = null;
-  @Output() selectAuthor = new EventEmitter<Author>(); 
+  @Output() selectAuthor = new EventEmitter<Contributor>(); 
   private authorService:AuthorService;
   private activatedRoute = inject(ActivatedRoute);
   constructor(){
@@ -30,7 +30,7 @@ export class AuthorListComponent {
     this.authorService.getAuthors(this.filter,(authors)=>this.authors = authors);
   }
 
-  select(author:Author){
+  select(author:Contributor){
     this.selectAuthor.emit(author);
   }
 }

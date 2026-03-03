@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { Author } from '../../data/author_data';
+import { Contributor } from '../../data/author_data';
 
 @Component({
   selector: 'app-author-view',
@@ -8,5 +8,5 @@ import { Author } from '../../data/author_data';
   styleUrl: './author-view.component.scss'
 })
 export class AuthorViewComponent {
-  @Input() author!: Author;
+  @Input() author!: Contributor;
 }

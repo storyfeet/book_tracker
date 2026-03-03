@@ -1,18 +1,23 @@
 import { Book } from "./book_data";
 
-export interface Author{
+export interface Contributor{
     FullName: string;
     Id: number;
     Notes: string;
 }
 
-export interface NewAuthor{
+export interface NewContributor{
     FullName: string;
     Notes: string;
 }
 
+export interface Contribution{
+    Contributor:Contributor,
+    Kind:string,
+}
 
-export interface BookAuthor{
-    book: Book,
-    authors: Author[],
+export interface BookContributions{
+    Book: Book,
+    Contributions: Contribution[],
+    Kind: string,
 }

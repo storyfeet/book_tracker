@@ -3,7 +3,7 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { AuthorListComponent } from './components/author-list/author-list.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookAddFormComponent } from './components/book-add-form/book-add-form.component';
-import { AuthorAddFormComponent } from './components/author-add-form/author-add-form.component';
+import { ContributorAddFormComponent } from './components/contributor-add-form/contributor-add-form.component';
 
 export const routes: Routes = [
     {
@@ -24,7 +24,7 @@ export const routes: Routes = [
     },
     {
         path:'local/authors/add',
-        component:AuthorAddFormComponent,
+        component:ContributorAddFormComponent,
     },
     {
         path: '**',

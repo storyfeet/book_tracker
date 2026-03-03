@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Author , NewAuthor } from '../data/author_data'; 
+import { Contributor , NewContributor } from '../data/author_data'; 
 
 const BASE_URL="http://localhost:5229";
 
@@ -17,14 +17,14 @@ export class AuthorService{
    * @param callback function(Book[]):null
    * @returns 
    */
-  getAuthors(filter:string,callback: (authors:Author[])=>void){
-    this.http.get<Author[]>(
+  getAuthors(filter:string,callback: (authors:Contributor[])=>void){
+    this.http.get<Contributor[]>(
       `${BASE_URL}/authors`,
       {params: {filter:filter }}
     ).subscribe(callback);
   }
 
-  addAuthor(author: NewAuthor,callback: (author:Author)=>void){
-    this.http.post<Author>(`${BASE_URL}/authors/add`,author,{}).subscribe(callback);
+  addAuthor(author: NewContributor,callback: (author:Contributor)=>void){
+    this.http.post<Contributor>(`${BASE_URL}/authors/add`,author,{}).subscribe(callback);
   }
 }
