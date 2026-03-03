@@ -4,13 +4,22 @@ using Microsoft.Data.Sqlite;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class BookAuthor{
+public enum ContributionType{
+    Author,
+    Illustrator,
+    Other,
+}
+
+
+public class Contribution{
     //Book and Author make a composite primary key
     [ForeignKey("Book")]
     public required long BookId {get;set;}
     public Book? Book{get;set;}
 
     [ForeignKey("Author")]
-    public required long AuthorId{get;set;}
-    public Author? Author{get;set;}
+    public required long ContributorId{get;set;}
+    public Contributor? Contributor{get;set;}
+
+    public ContributionType Kind{get;set;}
 }

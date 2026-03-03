@@ -4,7 +4,7 @@ using Microsoft.Data.Sqlite;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class Author{
+public class Contributor{
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public long? Id {get;set;}

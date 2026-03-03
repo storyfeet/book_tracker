@@ -8,12 +8,12 @@ public class SubDbContext : DbContext
     }
 
     public DbSet<Book> Books {get;set;}
-    public DbSet<BookAuthor> BookAuthors {get;set;}
-    public DbSet<Author> Authors {get;set;}
+    public DbSet<Contributor> Contributors {get;set;}
+    public DbSet<Contribution> Contributions {get;set;}
     //public DbSet<Product> Products { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder){
-        modelBuilder.Entity<BookAuthor>().HasKey(nameof(BookAuthor.BookId), nameof(BookAuthor.AuthorId));
+        modelBuilder.Entity<Contribution>().HasKey(nameof(Contribution.BookId), nameof(Contribution.ContributorId));
     }
 }
 

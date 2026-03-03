@@ -51,13 +51,13 @@ app.MapPost("/books/add",async(
     }
 );
 
-app.MapPost("/authors/add",async(
+app.MapPost("/contributors/add",async(
     SubDbContext context, 
-    [FromBody] Author author
+    [FromBody] Contributor contributor
     ) =>{
-        context.Authors.Add(author);
+        context.Contributors.Add(contributor);
         await context.SaveChangesAsync();
-        return JsonSerializer.Serialize(author);
+        return JsonSerializer.Serialize(contributor);
     }
 );
 
@@ -82,39 +82,44 @@ app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>
 
     var book = await context.Books.FindAsync(BookId);
 
-    var authors = await context.BookAuthors
+    var contributions = await context.Contributions
         .Where((pivot)=>pivot.BookId == BookId )
-        .Join(context.Authors,bookAuthor=>bookAuthor.AuthorId,author=>author.Id,(_,author)=>author)
+        .Join(
+            context.Contributors,
+            contribution=>contribution.ContributorId,
+            contributor=>contributor.Id,
+            (contribution,_)=>contribution
+        )
         .ToListAsync();
 
     var result = new {
         book = book,
-        authors = authors,
+        contributions = contributions,
     };
 
     return JsonSerializer.Serialize(result);
 
 });
 
-app.MapPost("/books/assign_author", async(SubDbContext context, [FromBody] BookAuthor bookAuthor)=>{
-    context.BookAuthors.Add(bookAuthor);
+app.MapPost("/books/add_contribution", async(SubDbContext context, [FromBody] Contribution contribution)=>{
+    context.Contributions.Add(contribution);
     await context.SaveChangesAsync();
     return SUCCESS;
 });
 
-app.MapGet("/authors", async(SubDbContext context,[FromQuery] string filter)=>{
+app.MapGet("/contributors", async(SubDbContext context,[FromQuery] string filter)=>{
 
-    var predicate = PredicateBuilder.New<Author>()
+    var predicate = PredicateBuilder.New<Contributor>()
         .Or((p)=>p.FullName.Contains(filter))
         .Or((p)=>p.Notes.Contains(filter));
 
     
 
-    var authors = await context.Authors
+    var contributors = await context.Contributors
         .Where(predicate)
         .ToListAsync();
 
-    string jsonString = JsonSerializer.Serialize(authors);
+    string jsonString = JsonSerializer.Serialize(contributors);
 
     return jsonString;
 });
