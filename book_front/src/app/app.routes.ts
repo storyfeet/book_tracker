@@ -1,22 +1,34 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { AuthorListComponent } from './components/author-list/author-list.component';
+import { BookEditComponent } from './components/book-edit/book-edit.component';
+import { BookAddFormComponent } from './components/book-add-form/book-add-form.component';
+import { AuthorAddFormComponent } from './components/author-add-form/author-add-form.component';
 
 export const routes: Routes = [
     {
-        path:'',
-        component:HomePageComponent,
+        path: 'local/books/view',
+        component: BookListComponent,
     },
     {
         path:'local/books/edit',
-        component:HomePageComponent,
+        component:BookEditComponent,
+    },
+    {
+        path: 'local/books/add',
+        component:BookAddFormComponent,
     },
     {
         path:'local/authors/view',
-        component:HomePageComponent,
+        component:AuthorListComponent,
+    },
+    {
+        path:'local/authors/add',
+        component:AuthorAddFormComponent,
     },
     {
         path: '**',
-        component: HomePageComponent,
+        component: BookListComponent,
     }
 
 ];

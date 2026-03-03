@@ -6,28 +6,3 @@
     <button (click)="goto('/local/authors/add')">Add Author</button>
 
   </div>
-  @switch (mode) {
-    @case ('local/books/view'){
-        <app-book-list/>
-    } 
-    @case(''){
-        <app-book-list/>
-    }
-    @case ('local/books/add'){
-        <app-book-add-form/>
-    }
-    @case ('local/books/edit'){
-      <app-book-edit/>
-    }
-    @case('local/authors/view'){
-      <app-author-list/>
-    }
-    @case ('local/authors/add'){
-      <app-author-add-form/>
-    }
-    
-
-    @default(){
-        <span>TODO: {{mode}}</span>
-    }
-  }
