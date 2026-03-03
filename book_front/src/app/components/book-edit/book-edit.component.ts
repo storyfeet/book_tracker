@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { Book } from '../../data/book_data';
 import { Contributor, BookContributions,Contribution } from '../../data/author_data';
 import { FormsModule } from '@angular/forms';
-import { BookListerService } from '../../services/book-lister.service';
+import { BookService } from '../../services/book.service';
 import { AuthorListComponent } from "../author-list/author-list.component";
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,13 +16,13 @@ export class BookEditComponent {
   bookId: number | null;
   book: Book | null;
   contributions: Contribution[] = [];
-  bookService: BookListerService;
+  bookService: BookService;
   private activatedRoute = inject(ActivatedRoute);
 
   constructor(){
     this.book = null;
     this.bookId = this.activatedRoute.snapshot.queryParams['book_id'] ?? null;
-    this.bookService = new BookListerService();
+    this.bookService = new BookService();
     this.selectBook();
   }
 
@@ -30,9 +30,11 @@ export class BookEditComponent {
     if (this.bookId === null){
       return;
     }
+    let parent = this;
     this.bookService.getBook(this.bookId,(data:BookContributions)=>{
-      this.book = data.Book;
-      this.contributions = data.Contributions;
+      parent.book = data.book;
+      parent.contributions = data.contributions;
+      console.log("Book Collected",data);
     });
   }
 

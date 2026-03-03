@@ -10,7 +10,7 @@ const BASE_URL="http://localhost:5229";
 @Injectable({
   providedIn: 'root'
 })
-export class BookListerService {
+export class BookService {
   private http = inject(HttpClient);
   constructor() { }
 
@@ -28,7 +28,10 @@ export class BookListerService {
   getBook(bookId:number, callback: (ba:BookContributions)=>void){
     this.http.get<BookContributions>(`${BASE_URL}/books/book`,{
       params:{BookId: bookId},
-    }).subscribe(callback);
+    }).subscribe({
+      next: callback,
+      error: (err)=>console.log("ERROR: ",err)
+    });
   }
 
   addBook(book: NewBook,callback: (book:Book)=>void){
@@ -36,7 +39,7 @@ export class BookListerService {
   }
 
   assignAuthor(bookId:number, authorId: number,callback:()=>void){
-    this.http.post(`${BASE_URL}/books/assign_author`,{bookId:bookId,authorId:authorId},{})
+    this.http.post(`${BASE_URL}/books/add_contribution`,{bookId:bookId,authorId:authorId},{})
       .subscribe(callback);
   }
 }

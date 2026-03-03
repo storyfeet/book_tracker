@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewContributor ,Contributor} from '../../data/author_data';
-import { AuthorService } from '../../services/author.service';
+import { ContributorService } from '../../services/contributor.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 })
 export class ContributorAddFormComponent {
     author: NewContributor = {FullName:'',Notes:''};
-    private authorService:AuthorService;
+    private authorService:ContributorService;
     private router = inject(Router);
   
     constructor(){
-      this.authorService = new AuthorService();
+      this.authorService = new ContributorService();
     }
   
     onSubmit(){

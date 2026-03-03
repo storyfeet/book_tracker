@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewBook,Book } from '../../data/book_data';
-import { BookListerService } from '../../services/book-lister.service';
+import { BookService } from '../../services/book.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 })
 export class BookAddFormComponent {
   book: NewBook = {Title:'',ISBN:'',Notes:'',Genres:''};
-  private bookService:BookListerService;
+  private bookService:BookService;
   private router:Router = inject(Router);
 
   constructor(){
-    this.bookService = new BookListerService();
+    this.bookService = new BookService();
   }
 
   onSubmit(){

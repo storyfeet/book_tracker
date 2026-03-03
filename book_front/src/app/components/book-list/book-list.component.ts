@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Book } from '../../data/book_data';
 import { BookComponent } from '../book/book.component';
-import { BookListerService } from '../../services/book-lister.service';
+import { BookService } from '../../services/book.service';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -13,10 +13,10 @@ import { FormsModule } from '@angular/forms';
 export class BookListComponent {
   filter: string;
   books: Book[] = [];
-  private bookService:BookListerService;
+  private bookService:BookService;
   constructor(){
     this.filter = '';
-    this.bookService = new BookListerService();
+    this.bookService = new BookService();
     this.loadBooks();
   }
 

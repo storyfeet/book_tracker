@@ -8,7 +8,7 @@ const BASE_URL="http://localhost:5229";
 @Injectable({
   providedIn: 'root'
 })
-export class AuthorService{
+export class ContributorService{
   private http = inject(HttpClient);
   constructor() { }
 
@@ -19,12 +19,12 @@ export class AuthorService{
    */
   getAuthors(filter:string,callback: (authors:Contributor[])=>void){
     this.http.get<Contributor[]>(
-      `${BASE_URL}/authors`,
+      `${BASE_URL}/contributors`,
       {params: {filter:filter }}
     ).subscribe(callback);
   }
 
   addAuthor(author: NewContributor,callback: (author:Contributor)=>void){
-    this.http.post<Contributor>(`${BASE_URL}/authors/add`,author,{}).subscribe(callback);
+    this.http.post<Contributor>(`${BASE_URL}/contributors/add`,author,{}).subscribe(callback);
   }
 }

@@ -12,8 +12,8 @@
 
 By: 
 }
-@for(author of authors; track $index){
-    <span>@if (!$first){ and } {{author.FullName}}</span>
+@for(contribution of contributions; track $index){
+    <span>@if (!$first){ and } {{contribution.Contributor.FullName}}</span>
 }
 
 <h2>Assign Authors</h2>

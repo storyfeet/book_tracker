@@ -17,7 +17,6 @@ export interface Contribution{
 }
 
 export interface BookContributions{
-    Book: Book,
-    Contributions: Contribution[],
-    Kind: string,
+    book: Book,
+    contributions: Contribution[],
 }
