@@ -1,9 +1,8 @@
-import { Component, EventEmitter, inject, Input ,Output, SimpleChanges} from '@angular/core';
+import { Component, EventEmitter, Input ,Output, SimpleChanges} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NewBook,Book } from '../../data/book_data';
+import { Book } from '../../data/book_data';
 import { BookService } from '../../services/book.service';
-import { Router } from '@angular/router';
-import { OnChanges } from '@angular/core';
+
 
 @Component({
   selector: 'app-book-edit-details',
@@ -38,6 +37,10 @@ export class BookEditDetailsComponent {
         outer.updated.emit(bookRes);
       });
 
+  }
+
+  action(){
+    return 'Update Book';
   }
 
 }

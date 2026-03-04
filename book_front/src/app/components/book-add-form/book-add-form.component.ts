@@ -34,4 +34,9 @@ export class BookAddFormComponent {
     );
   }
 
+
+  action(){
+    return 'Add Book';
+  }
+
 }

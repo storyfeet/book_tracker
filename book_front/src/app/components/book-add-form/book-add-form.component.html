@@ -1,8 +1,8 @@
-<h2>Add Book</h2>
+<h2>{{action()}}</h2>
 <form (submit)="onSubmit()">
     <span>Title: </span><input name="Title" type="text" [(ngModel)]="book.Title" /><br>
     <span>Notes: </span><input name="Notes" type="text" [(ngModel)]="book.Notes"/><br>
     <span>Genres: </span><input name="Genres" type="text" [(ngModel)]="book.Genres" /><br>
     <span>ISBN: </span><input name="ISBN" type="text" [(ngModel)]="book.ISBN" /><br>
-    <input type="submit" value="Add Book">
+    <input type="submit" value="{{action()}}">
 </form>
