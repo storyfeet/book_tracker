@@ -33,6 +33,6 @@ export class ContributorService{
   }
 
   updateContributor(contributor:Contributor, callback:(contributor:Contributor)=>void){
-    this.http.post<Contributor>(`${BASE_URL}/contributors/update`,contributor,{}).subscribe(callback);
+    this.http.post<Contributor>(`${BASE_URL}/contributors/edit_details`,contributor,{}).subscribe(callback);
   }
 }
