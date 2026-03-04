@@ -26,3 +26,18 @@ export interface BookContributions{
     book: Book,
     contributions: Contribution[],
 }
+
+// Creation is something an author/illustrator had a part in making.
+// It is the opposite direction on the same join as Contribution.
+export interface Creations{
+    Contributor: Contributor,
+    Creations: Creation[],
+}
+
+export interface Creation{
+    Book: Book,
+    ContributionKind: string,
+}
+
+
+

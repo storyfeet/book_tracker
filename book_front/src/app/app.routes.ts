@@ -4,6 +4,7 @@ import { ContributorListComponent } from './components/contributor-list/contribu
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookAddFormComponent } from './components/book-add-form/book-add-form.component';
 import { ContributorAddFormComponent } from './components/contributor-add-form/contributor-add-form.component';
+import { ContributorEditComponent } from './components/contributor-edit/contributor-edit.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,10 @@ export const routes: Routes = [
     {
         path:'local/contributors/add',
         component:ContributorAddFormComponent,
+    },
+    {
+        path:'local/contributors/edit',
+        component:ContributorEditComponent,
     },
     {
         path: '**',

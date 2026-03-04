@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NewContributor ,Contributor} from '../../data/author_data';
+import { NewContributor ,Contributor} from '../../data/contribution_data';
 import { ContributorService } from '../../services/contributor.service';
 import { Router } from '@angular/router';
 

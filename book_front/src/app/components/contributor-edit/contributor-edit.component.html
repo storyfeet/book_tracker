@@ -1,0 +1,33 @@
+<h2>Edit Contributor</h2>
+
+<form (submit)="selectContributor()">
+    <span>Contributor Id:</span><input name="contributorId" type="number" [(ngModel)]="contributorId"/>
+    <input type="submit" value="Select Contributor"/>
+</form>
+
+@if (contributor){
+    
+    <button (click)="editMode = !editMode">Edit Details</button>
+    @if(editMode){
+        <form (submit)="updateContributor(contributor)">
+            <span>Full Name: </span><input name="FullName" type="string" [(ngModel)]="contributor.FullName"/><br>
+            <span>Notes: </span><input name="Notes" type="string" [(ngModel)]="contributor.Notes"/><br>
+            <input type="submit" value="Update Contributor"/>
+        </form>
+    }@else{
+        <h3>{{contributor.FullName}}</h3>
+        <p>{{contributor.Notes}}</p>
+    }   
+    @for (creation of filterCreations('Author'); track $index){
+        @if ($first){Authored: } 
+        <br>{{creation.Book.Title}}
+        @if ($last){<br>}
+    }
+    @for (creation of filterCreations('Illustrator'); track $index){
+        @if ($first){Illustrated: }
+        <br>{{creation.Book.Title}}
+        @if ($last){<br>}
+
+    }
+
+}

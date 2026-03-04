@@ -1,5 +1,5 @@
 import { Component,Input } from '@angular/core';
-import { Contributor } from '../../data/author_data';
+import { Contributor } from '../../data/contribution_data';
 
 @Component({
   selector: 'app-author-view',

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Book } from '../../data/book_data';
-import { Contributor, BookContributions,Contribution, NewContribution } from '../../data/author_data';
+import { Contributor, BookContributions,Contribution, NewContribution } from '../../data/contribution_data';
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { ContributorListComponent } from "../contributor-list/contributor-list.component";

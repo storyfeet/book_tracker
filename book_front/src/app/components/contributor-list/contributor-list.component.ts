@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Contributor } from '../../data/author_data';
+import { Contributor } from '../../data/contribution_data';
 import { AuthorViewComponent } from '../author-view/author-view.component';
 import { ContributorService } from '../../services/contributor.service';
 import { FormsModule } from '@angular/forms';

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Book } from '../data/book_data';
 import { NewBook } from '../data/book_data';
-import { BookContributions, NewContribution} from '../data/author_data';
+import { BookContributions, NewContribution} from '../data/contribution_data';
 
 const BASE_URL="http://localhost:5229";
 

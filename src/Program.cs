@@ -105,6 +105,33 @@ app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>
 
 });
 
+app.MapGet("/contributors/contributor", async(SubDbContext context, [FromQuery] long ContributorId)=>{
+
+    var contributor = await context.Contributors.FindAsync(ContributorId);
+
+    var creations = await context.Contributions
+        .Where((pivot)=>pivot.ContributorId == ContributorId )
+        .Join(
+            context.Books,
+            contribution=>contribution.BookId,
+            book=>book.Id,
+            (contribution,book)=>new {
+                ContributionKind = contribution.Kind,
+                Book = book
+            }
+
+        )
+        .ToListAsync();
+
+    var result = new {
+        Contributor = contributor,
+        Creations = creations,
+    };
+
+    return JsonSerializer.Serialize(result);
+
+});
+
 app.MapPost("/books/edit_details",async(SubDbContext context, [FromBody] Book book)=>{
     context.Books.Update(book);
     await context.SaveChangesAsync();
