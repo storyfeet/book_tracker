@@ -6,10 +6,15 @@
 </form>
 
 @if (book){
-    <h3>{{book.Title}}</h3>
-    <p>({{book.Id}}:{{book.ISBN}}) {{book.Notes}} </p>
-    <p>{{book.Genres}}</p>
-
+    
+    <button (click)="editMode = !editMode">Edit Details</button>
+    @if(editMode){
+        <app-book-edit-details [outerBook]="book" (updated)="updateBook($event)"/>
+    }@else{
+        <h3>{{book.Title}}</h3>
+        <p>({{book.Id}}:{{book.ISBN}}) {{book.Notes}} </p>
+        <p>{{book.Genres}}</p>
+    }   
     @for (contribution of filterContributions('Author'); track $index){
         @if ($first){By: } @else { and } 
         {{contribution.Contributor.FullName}}

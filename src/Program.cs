@@ -105,6 +105,12 @@ app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>
 
 });
 
+app.MapPost("/books/edit_details",async(SubDbContext context, [FromBody] Book book)=>{
+    context.Books.Update(book);
+    await context.SaveChangesAsync();
+    return JsonSerializer.Serialize(book);
+});
+
 app.MapPost("/books/add_contribution", async(SubDbContext context, [FromBody] Contribution contribution)=>{
     context.Contributions.Add(contribution);
     await context.SaveChangesAsync();

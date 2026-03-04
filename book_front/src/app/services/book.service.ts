@@ -38,6 +38,10 @@ export class BookService {
     this.http.post<Book>(`${BASE_URL}/books/add`,book,{}).subscribe(callback);
   }
 
+  editBook(book:Book,callback: (book:Book)=>void){
+    this.http.post<Book>(`${BASE_URL}/books/edit_details`,book,{}).subscribe(callback);
+  }
+
   addContribution(contribution:NewContribution,callback:()=>void){
     this.http.post(`${BASE_URL}/books/add_contribution`,contribution,{})
       .subscribe(callback);

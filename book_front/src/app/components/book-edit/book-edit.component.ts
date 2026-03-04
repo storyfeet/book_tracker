@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { ContributorListComponent } from "../contributor-list/contributor-list.component";
 import { ActivatedRoute } from '@angular/router';
+import { BookEditDetailsComponent } from "../book-add-form/book-edit-details.component";
 
 @Component({
   selector: 'app-book-edit',
-  imports: [FormsModule, ContributorListComponent],
+  imports: [FormsModule, ContributorListComponent, BookEditDetailsComponent],
   templateUrl: './book-edit.component.html',
   styleUrl: './book-edit.component.scss'
 })
@@ -18,10 +19,12 @@ export class BookEditComponent {
   contributions: Contribution[] = [];
   addContributor : string | null = null;
   bookService: BookService;
+  editMode: boolean;
   private activatedRoute = inject(ActivatedRoute);
 
   constructor(){
     this.book = null;
+    this.editMode = false;
     this.bookId = this.activatedRoute.snapshot.queryParams['book_id'] ?? null;
     this.bookService = new BookService();
     this.selectBook();
@@ -57,7 +60,12 @@ export class BookEditComponent {
       parent.selectBook();
       parent.addContributor = null;
     });
+  }
 
+  updateBook(event:Book){
+    this.editMode = false;
+    console.log("Book Updated: ",event);
+    this.book = {...event};
   }
 
 
