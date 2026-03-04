@@ -123,8 +123,6 @@ app.MapGet("/contributors", async(SubDbContext context,[FromQuery] string filter
         .Or((p)=>p.FullName.Contains(filter))
         .Or((p)=>p.Notes.Contains(filter));
 
-    
-
     var contributors = await context.Contributors
         .Where(predicate)
         .ToListAsync();
@@ -132,6 +130,12 @@ app.MapGet("/contributors", async(SubDbContext context,[FromQuery] string filter
     string jsonString = JsonSerializer.Serialize(contributors);
 
     return jsonString;
+});
+
+app.MapPost("/contributors/edit_details",async(SubDbContext context, [FromBody] Contributor contributor)=>{
+    context.Contributors.Update(contributor);
+    await context.SaveChangesAsync();
+    return JsonSerializer.Serialize(contributor);
 });
 
  
