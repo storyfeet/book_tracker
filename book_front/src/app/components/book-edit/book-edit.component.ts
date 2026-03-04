@@ -39,6 +39,10 @@ export class BookEditComponent {
     });
   }
 
+  filterContributions(kind:string){
+    return this.contributions.filter((c)=>c.Kind == kind);
+  }
+
   addAuthor(contributor:Contributor){
     if (!this.bookId || ! this.addContributor){
       return;

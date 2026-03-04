@@ -6,20 +6,28 @@
 </form>
 
 @if (book){
-<h3>{{book.Title}}</h3>
-<p>({{book.Id}}:{{book.ISBN}}) {{book.Notes}} </p>
-<p>{{book.Genres}}</p>
+    <h3>{{book.Title}}</h3>
+    <p>({{book.Id}}:{{book.ISBN}}) {{book.Notes}} </p>
+    <p>{{book.Genres}}</p>
 
-By: 
-}
-@for(contribution of contributions; track $index){
-    <span>@if (!$first){ and } {{contribution.Contributor.FullName}}</span>
-}
+    @for (contribution of filterContributions('Author'); track $index){
+        @if ($first){By: } @else { and } 
+        {{contribution.Contributor.FullName}}
+        @if ($last){<br>}
+    }
+    @for (contribution of filterContributions('Illustrator'); track $index){
+        @if ($first){Illustrated By: } @else { and } 
+        {{contribution.Contributor.FullName}}
+    }
 
-<button (click)="addContributor='Author'">Add Author</button>
-<button (click)="addContributor='Illustrator'">Add Illustrator</button>
 
-@if(addContributor){
-    <h2>Add {{addContributor}}</h2>
-    <app-author-list [selectText]="`Add This ${addContributor}`" (selectAuthor)="addAuthor($event)"/>
+    <br><br>
+    <button (click)="addContributor='Author'">Add Author</button>
+    <button (click)="addContributor='Illustrator'">Add Illustrator</button>
+
+    @if(addContributor){
+        <h2>Add {{addContributor}}</h2>
+        <app-author-list [selectText]="`Add This ${addContributor}`" (selectAuthor)="addAuthor($event)"/>
+    }
+
 }

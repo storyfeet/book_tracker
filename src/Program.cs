@@ -88,7 +88,11 @@ app.MapGet("/books/book", async(SubDbContext context, [FromQuery] long BookId)=>
             context.Contributors,
             contribution=>contribution.ContributorId,
             contributor=>contributor.Id,
-            (contribution,_)=>contribution
+            (contribution,contributor)=>new {
+                Kind = contribution.Kind,
+                Contributor = contributor
+            }
+
         )
         .ToListAsync();
 
