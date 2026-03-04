@@ -8,10 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-author-list',
   imports: [AuthorViewComponent,FormsModule],
-  templateUrl: './author-list.component.html',
-  styleUrl: './author-list.component.scss'
+  templateUrl: './contributor-list.component.html',
+  styleUrl: './contributor-list.component.scss'
 })
-export class AuthorListComponent {
+export class ContributorListComponent {
   filter: string;
   authors: Contributor[] = [];
   @Input() selectText:string|null = null;

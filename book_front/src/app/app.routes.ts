@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { BookListComponent } from './components/book-list/book-list.component';
-import { AuthorListComponent } from './components/author-list/author-list.component';
+import { ContributorListComponent } from './components/contributor-list/contributor-list.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BookAddFormComponent } from './components/book-add-form/book-add-form.component';
 import { ContributorAddFormComponent } from './components/contributor-add-form/contributor-add-form.component';
@@ -20,7 +20,7 @@ export const routes: Routes = [
     },
     {
         path:'local/authors/view',
-        component:AuthorListComponent,
+        component:ContributorListComponent,
     },
     {
         path:'local/authors/add',
