@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-book-tab-box',
@@ -17,13 +17,26 @@ export class BookTabBoxComponent {
   top:string = '';
   bottom:string = '';
 
-  constructor(){
-    console.log('TAB-PATH:',this.active.snapshot.pathFromRoot);
+  constructor() {
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd){
+        let parts = event.url.split(/[\/?]/gi);
+        // Given: '/local/books/view?' books is part 2
+        this.top = parts[2] ?? 'books';
+        this.bottom = parts[3] ?? 'view';
+      }
+    });
   }
+
+  
+
+
 
   setTop(newTop:string){
     this.top = newTop;
-    this.setBottom('view');
+    this.bottom = 'view';
+    this.go();
   }
 
   setBottom(newBottom:string){
