@@ -16,5 +16,10 @@ By:
     <span>@if (!$first){ and } {{contribution.Contributor.FullName}}</span>
 }
 
-<h2>Assign Authors</h2>
-<app-author-list [selectText]="'Assign Author'" (selectAuthor)="addAuthor($event)"/>
+<button (click)="addContributor='Author'">Add Author</button>
+<button (click)="addContributor='Illustrator'">Add Illustrator</button>
+
+@if(addContributor){
+    <h2>Add {{addContributor}}</h2>
+    <app-author-list [selectText]="`Add This ${addContributor}`" (selectAuthor)="addAuthor($event)"/>
+}

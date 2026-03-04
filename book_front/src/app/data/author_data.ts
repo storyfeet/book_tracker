@@ -11,6 +11,12 @@ export interface NewContributor{
     Notes: string;
 }
 
+export interface NewContribution{
+    ContributorId:number,
+    BookId:number,
+    Kind:string,
+}
+
 export interface Contribution{
     Contributor:Contributor,
     Kind:string,

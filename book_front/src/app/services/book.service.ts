@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Book } from '../data/book_data';
 import { NewBook } from '../data/book_data';
-import { Contributor ,BookContributions} from '../data/author_data';
+import { BookContributions, NewContribution} from '../data/author_data';
 
 const BASE_URL="http://localhost:5229";
 
@@ -38,8 +38,8 @@ export class BookService {
     this.http.post<Book>(`${BASE_URL}/books/add`,book,{}).subscribe(callback);
   }
 
-  assignAuthor(bookId:number, authorId: number,callback:()=>void){
-    this.http.post(`${BASE_URL}/books/add_contribution`,{bookId:bookId,authorId:authorId},{})
+  addContribution(contribution:NewContribution,callback:()=>void){
+    this.http.post(`${BASE_URL}/books/add_contribution`,contribution,{})
       .subscribe(callback);
   }
 }

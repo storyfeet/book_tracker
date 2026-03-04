@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Book } from '../../data/book_data';
-import { Contributor, BookContributions,Contribution } from '../../data/author_data';
+import { Contributor, BookContributions,Contribution, NewContribution } from '../../data/author_data';
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../../services/book.service';
 import { AuthorListComponent } from "../author-list/author-list.component";
@@ -16,6 +16,7 @@ export class BookEditComponent {
   bookId: number | null;
   book: Book | null;
   contributions: Contribution[] = [];
+  addContributor : string | null = null;
   bookService: BookService;
   private activatedRoute = inject(ActivatedRoute);
 
@@ -38,14 +39,19 @@ export class BookEditComponent {
     });
   }
 
-  addAuthor(author:Contributor){
-    if (!this.bookId){
+  addAuthor(contributor:Contributor){
+    if (!this.bookId || ! this.addContributor){
       return;
     }
+    let contribution: NewContribution= {
+      ContributorId :contributor.Id,
+      BookId: this.bookId,
+      Kind: this.addContributor,
+    }
     let parent = this;
-    this.bookService.assignAuthor(this.bookId,author.Id,()=>{  
+    this.bookService.addContribution(contribution,()=>{  
       parent.selectBook();
-     });
+    });
 
   }
 
