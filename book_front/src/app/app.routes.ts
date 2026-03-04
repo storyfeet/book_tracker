@@ -19,11 +19,11 @@ export const routes: Routes = [
         component:BookAddFormComponent,
     },
     {
-        path:'local/authors/view',
+        path:'local/contributors/view',
         component:ContributorListComponent,
     },
     {
-        path:'local/authors/add',
+        path:'local/contributors/add',
         component:ContributorAddFormComponent,
     },
     {

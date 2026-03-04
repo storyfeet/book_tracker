@@ -1,0 +1,16 @@
+
+.selected{
+    text-decoration: underline;
+    font-size:120%;
+    background-color: bisque;
+}
+
+button{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: none;
+    background-color: white;
+    font-size: 120%;
+    border-radius: 5px 5px 0 0;
+}

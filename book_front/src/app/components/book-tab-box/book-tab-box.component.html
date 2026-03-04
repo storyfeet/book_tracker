@@ -1,8 +1,11 @@
   <div class="tab-box">
-    <button (click)="goto('/local/books/view')">Books</button>
-    <button (click)="goto('/local/books/add')">Add Book</button>
-    <button (click)="goto('/local/books/edit')">Edit Book</button>
-    <button (click)="goto('/local/authors/view')">View Authors</button>
-    <button (click)="goto('/local/authors/add')">Add Author</button>
+    <button [ngClass]="{selected:top==='books'}" (click)="setTop('books')">Books</button>
+    <button [ngClass]="{selected:top==='contributors'}" (click)="setTop('contributors')">Contributors</button>
+  </div>
+
+  <div class="sub-tabs">
+    <button [ngClass]="{selected:bottom ==='view'}" (click)="setBottom('view')">View</button>
+    <button [ngClass]="{selected:bottom ==='add'}" (click)="setBottom('add')">Add</button>
+    <button [ngClass]="{selected:bottom ==='edit'}" (click)="setBottom('edit')">Edit</button>
 
   </div>
