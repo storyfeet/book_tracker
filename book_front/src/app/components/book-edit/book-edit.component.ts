@@ -55,6 +55,7 @@ export class BookEditComponent {
     let parent = this;
     this.bookService.addContribution(contribution,()=>{  
       parent.selectBook();
+      parent.addContributor = null;
     });
 
   }

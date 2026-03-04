@@ -24,6 +24,7 @@
     <br><br>
     <button (click)="addContributor='Author'">Add Author</button>
     <button (click)="addContributor='Illustrator'">Add Illustrator</button>
+    @if (addContributor){<button (click)="addContributor=null">X</button>}
 
     @if(addContributor){
         <h2>Add {{addContributor}}</h2>
