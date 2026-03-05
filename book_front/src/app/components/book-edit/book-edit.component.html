@@ -33,7 +33,7 @@
 
     @if(addContributor){
         <h2>Add {{addContributor}}</h2>
-        <app-author-list [selectText]="`Add This ${addContributor}`" (selectAuthor)="addAuthor($event)"/>
+        <app-author-list [isSub]="true" [selectText]="`Add This ${addContributor}`" (selectAuthor)="addAuthor($event)"/>
     }
 
 }

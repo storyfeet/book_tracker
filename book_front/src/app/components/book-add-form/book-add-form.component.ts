@@ -36,7 +36,7 @@ export class BookAddFormComponent {
 
 
   action(){
-    return 'Add Book';
+    return 'New Book';
   }
 
 }

@@ -15,6 +15,7 @@ export class ContributorListComponent {
   filter: string;
   authors: Contributor[] = [];
   @Input() selectText:string|null = null;
+  @Input() isSub: boolean|null = null;
   @Output() selectAuthor = new EventEmitter<Contributor>(); 
   private authorService:ContributorService;
   private activatedRoute = inject(ActivatedRoute);
