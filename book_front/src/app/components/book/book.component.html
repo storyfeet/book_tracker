@@ -1,5 +1,4 @@
-<h3>{{ book.Title }}</h3>
+<h3>{{ book.Title }} <span> - </span> <a routerLink="/local/books/edit" [queryParams]="{book_id:book.Id}">Edit</a> </h3>
 <span>({{book.Id}}: {{book.ISBN}}) {{book.Notes}}</span><br>
 <span>{{ book.Genres }}</span>
 
-<a routerLink="/local/books/edit" [queryParams]="{book_id:book.Id}">Edit</a>
