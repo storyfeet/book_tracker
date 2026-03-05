@@ -59,12 +59,19 @@
   main {
     width: 100%;
     min-height: 100%;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
     box-sizing: inherit;
     position: relative;
+
+  }
+
+  .header{
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:20px;
+    width:fit-content;
   }
 
 
@@ -72,9 +79,12 @@
   .content {
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    width: fit-content;
+    max-width: 90%;
     margin-bottom: 3rem;
-    flex-direction: row;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right:auto;
   }
 
   .content h1 {
@@ -105,16 +115,19 @@
 </style>
 
 <main class="main">
-  <div class="content">
-    <div class="left-side">
+  <div class="header">
 
       <h1>Book Tracker</h1>
-      <app-book-tab-box/>
+      <br>
+      <app-book-tab-box />
+  </div>
+
+  <div class="content">
 
       <router-outlet />
-    </div>
-
   </div>
+
+  
   <app-side-bar/>
 </main>
 
